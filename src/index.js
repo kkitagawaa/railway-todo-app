@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
+import './index.scss'
 import { CookiesProvider } from 'react-cookie'
 import { Provider } from 'react-redux'
 import App from './App'
