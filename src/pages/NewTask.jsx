@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import { useCookies } from 'react-cookie'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 import { url } from '../const'
 import { Header } from '../components/Header'
 import './newTask.scss'
-import { useNavigate } from 'react-router-dom'
+
 
 export const NewTask = () => {
   const [selectListId, setSelectListId] = useState()
   const [lists, setLists] = useState([])
   const [title, setTitle] = useState('')
   const [detail, setDetail] = useState('')
+  const [limit, setLimit] = useState(null)
   const [errorMessage, setErrorMessage] = useState('')
   const [cookies] = useCookies()
   const navigate = useNavigate()
   const handleTitleChange = (e) => setTitle(e.target.value)
   const handleDetailChange = (e) => setDetail(e.target.value)
+  const handleLimitChange = (e) => setLimit(e.target.value + "Z")
   const handleSelectList = (id) => setSelectListId(id)
   const onCreateTask = () => {
     const data = {
       title: title,
       detail: detail,
       done: false,
+      limit: limit,
     }
-
     axios
       .post(`${url}/lists/${selectListId}/tasks`, data, {
         headers: {
@@ -88,6 +91,16 @@ export const NewTask = () => {
             type="text"
             onChange={handleDetailChange}
             className="new-task-detail"
+          />
+          <br />
+          <label>期限</label>
+          <br />
+          <input 
+            type="datetime-local"
+            name='limit'
+            step="1"
+            onChange={handleLimitChange}
+            className="new-task-limit"
           />
           <br />
           <button

@@ -125,6 +125,25 @@ export const Home = () => {
 // 表示するタスク
 const Tasks = (props) => {
   const { tasks, selectListId, isDoneDisplay } = props
+  const remainingTime = (limit) => {
+    if (limit != null) {
+      const now = new Date()
+      const timeDiff = new Date(limit).getTime() - now.getTime()
+      const days = Math.floor(timeDiff / 1000 / 60 / 60 /24)
+      const hours = Math.floor((timeDiff / 1000 / 60 / 60) %24)
+      const minutes = Math.floor((timeDiff / 1000 / 60) % 60)
+      if (timeDiff >=0) {
+        return(
+          `あと${days}日${hours}時間${minutes}分`
+        )
+      }else {
+        return (
+          "期限が過ぎています"
+        )
+      }
+    }
+  }
+
   if (tasks === null) return <></>
 
   if (isDoneDisplay == 'done') {
@@ -141,6 +160,10 @@ const Tasks = (props) => {
                 className="task-item-link"
               >
                 {task.title}
+                <br />
+                期限: {task.limit}(UTC時間)
+                <br />
+                {remainingTime(task.limit)}
                 <br />
                 {task.done ? '完了' : '未完了'}
               </Link>
@@ -163,6 +186,11 @@ const Tasks = (props) => {
               className="task-item-link"
             >
               {task.title}
+              <br />
+              期限: {task.limit}(UTC時間)
+              <br />
+              {console.log(task.limit)}
+              {remainingTime(task.limit)}
               <br />
               {task.done ? '完了' : '未完了'}
             </Link>
