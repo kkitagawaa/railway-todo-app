@@ -131,6 +131,13 @@ export const Home = () => {
 // 表示するタスク
 const Tasks = (props) => {
   const { tasks, selectListId, isDoneDisplay } = props
+  const limitTime = (limit) => {
+    if (limit != null) {
+      return (
+        `期限: ${limit}(UTC時間)`
+      )
+    }
+  }
   const remainingTime = (limit) => {
     if (limit != null) {
       const now = new Date()
@@ -167,7 +174,7 @@ const Tasks = (props) => {
               >
                 {task.title}
                 <br />
-                期限: {task.limit}(UTC時間)
+                {limitTime(task.limit)}
                 <br />
                 {remainingTime(task.limit)}
                 <br />
@@ -193,7 +200,7 @@ const Tasks = (props) => {
             >
               {task.title}
               <br />
-              期限: {task.limit}(UTC時間)
+              {limitTime(task.limit)}
               <br />
               {console.log(task.limit)}
               {remainingTime(task.limit)}

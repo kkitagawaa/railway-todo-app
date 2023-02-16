@@ -65,3 +65,34 @@
     }
   }
 }
+
+@media screen and (min-width: 376px) and (max-width: 768px) {
+  .taskList {
+    margin: 50px auto;
+    list-style: none;
+    width: 100%;
+  }
+  .list-header {
+    justify-content: space-between;
+    .list-menu {
+      text-align: right;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .taskList {
+    margin: 50px auto;
+    list-style: none;
+    width: 100%;
+  }
+  .list-header {
+    justify-content: space-between;
+    .list-menu {
+      text-align: right;
+    }
+  }
+  .list-tab {
+    flex-direction: column;
+  }
+}

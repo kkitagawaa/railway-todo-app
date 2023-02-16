@@ -19,3 +19,31 @@
     }
   }
 }
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .new-list {
+    width: 100%;
+    margin: 0 auto;
+    .new-list-form {
+      color: #555555;
+      .new-list-title {
+        width: 70%;
+        margin-bottom: 5%;
+      }
+      .new-list-button {
+        background-color: #242f9b;
+        color: #ffffff;
+        width: 20%;
+        height: 40px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .new-list {
+    width: 100%;
+    margin: 0 auto;
+  }
+}

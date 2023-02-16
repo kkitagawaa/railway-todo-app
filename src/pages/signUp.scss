@@ -29,3 +29,23 @@
     color: #ff3333;
   }
 }
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .signup {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .signup-form {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .signup {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .signup-form {
+    width: 90%;
+  }
+}

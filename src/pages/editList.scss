@@ -34,3 +34,17 @@
     }
   }
 }
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+  .edit-list {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .edit-list {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
