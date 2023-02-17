@@ -18,14 +18,14 @@ export const EditTask = () => {
   const handleTitleChange = (e) => setTitle(e.target.value)
   const handleDetailChange = (e) => setDetail(e.target.value)
   const handleIsDoneChange = (e) => setIsDone(e.target.value === 'done')
-  const handleLimitChange = (e) => setLimit(e.target.value + "Z")
+  const handleLimitChange = (e) => setLimit(e.target.value)
   const onUpdateTask = () => {
     console.log(isDone)
     const data = {
       title: title,
       detail: detail,
       done: isDone,
-      limit: limit,
+      limit: limit + "Z",
     }
 
     axios
